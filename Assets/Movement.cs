@@ -10,8 +10,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(x, 0, y);
         movement = movement.normalized * speed * Time.deltaTime;
@@ -21,5 +21,7 @@ public class Movement : MonoBehaviour
 
         //transform.position = newPosition;
         controller.Move(movement);
+
+        //https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
     }
 }
